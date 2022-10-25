@@ -44,25 +44,25 @@ int main()
             std::cout << endl << "Please select a plan (enter A, B, or C): ";
             std::cin >> plan;
 
-            //assign selected plan values from constants
+            //assign selected plan values from constants for future calculation voa switch
             switch (plan)
             {
-            case 'A': case 'a':
+            case 'A': case 'a':         //select chouce a
                 goodInput = !goodInput; // set to good input
                 selectPrem       = aPremium;
                 selectDeductable = aDeductible;
                 selectCopay      = aCopay;
                 break;
 
-            case 'B': case 'b':
-                goodInput = !goodInput;
+            case 'B': case 'b': //select chouce b
+                goodInput = !goodInput;// set to good input
                 selectPrem       = bPremium;
                 selectDeductable = bDeductible;
                 selectCopay      = bCopay;
                 break;
 
-            case 'C': case 'c':
-                goodInput = !goodInput;
+            case 'C': case 'c':        //select choice c
+                goodInput = !goodInput;// set to good input
                 selectPrem       = cPremium;
                 selectDeductable = cDeductible;
                 selectCopay      = cCopay;
@@ -81,8 +81,8 @@ int main()
         //get valid number of prescription inputs
         while (!goodInput)
         {
-            std::cout << "Please enter the estimated number of prescriptions (0 to 96): ";
-            std::cin >> estPrescriptions;
+            cout << "Please enter the estimated number of prescriptions (0 to 96): ";
+            cin >> estPrescriptions;
 
             if (estPrescriptions >= 0 && estPrescriptions <= 96)
             {
@@ -90,7 +90,7 @@ int main()
             }
             else
             {
-                std::cout << endl << "Sorry, " << estPrescriptions << " is not a valid number of prescriptions. Please try again."<< endl;
+                cout << endl << "Sorry, " << estPrescriptions << " is not a valid number of prescriptions. Please try again."<< endl;
             }
         } // end prescription number input validation
 
@@ -101,14 +101,14 @@ int main()
         annualPremium          = selectPrem * 12;
         prescriptionAnnualCost = estPrescriptions * prescriptionUnitCost;
         overDeductible         = prescriptionAnnualCost - selectDeductable;
-        cost = annualPremium + selectDeductable + overDeductible * selectCopay;
+        cost                   = annualPremium + selectDeductable + overDeductible * selectCopay;
 
         //Output estimate
-        std::cout << "Plan " << plan << " cost for " << estPrescriptions << " prescriptions is $" << cost << endl;
+        cout << "Plan " << plan << " cost for " << estPrescriptions << " prescriptions is $" << cost << endl;
 
         //prompt for another go-around
-        std::cout << "Would you like another plan cost estimate? (y/n): ";
-        std::cin >> redo;
+        cout << "Would you like another plan cost estimate? (y/n): ";
+        cin >> redo;
     }
 
     return EXIT_SUCCESS;
