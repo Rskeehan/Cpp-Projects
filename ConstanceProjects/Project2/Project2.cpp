@@ -9,9 +9,9 @@ using namespace std;
 int main() 
 {
     //declare initial constants
-    const double aPremium = 10, bPremium = 25, cPremium = 50, 
-        aDeductible = 200, bDeductible = 200, cDeductible = 0, 
-        aCopay = .4, bCopay = .4, cCopay = 0, prescriptionUnitCost = 50; 
+    const double aPremium = 10,     bPremium = 25,     cPremium = 50, 
+                 aDeductible = 200, bDeductible = 200, cDeductible = 0, 
+                 aCopay = .4,       bCopay = .4,       cCopay = 0, prescriptionUnitCost = 50; 
     
     //declare initial variables
     double selectPrem, selectDeductable, selectCopay;
