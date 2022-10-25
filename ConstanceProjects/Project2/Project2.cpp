@@ -21,7 +21,7 @@ int main()
     while (redo == 'Y' || redo == 'y')
     {
         //display each plan's details
-        std::cout
+        cout
         << "Plan A" << endl
         << " Monthly Premium: $" << aPremium << endl
         << " Deductible $" << aDeductible << endl
@@ -41,8 +41,8 @@ int main()
         //loop plan selection while goodInput is false
         while (!goodInput)
         {
-            std::cout << endl << "Please select a plan (enter A, B, or C): ";
-            std::cin >> plan;
+            cout << endl << "Please select a plan (enter A, B, or C): ";
+            cin >> plan;
 
             //assign selected plan values from constants for future calculation voa switch
             switch (plan)
