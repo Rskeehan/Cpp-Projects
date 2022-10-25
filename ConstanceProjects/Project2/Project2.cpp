@@ -17,7 +17,7 @@ int main()
     double selectPrem, selectDeductable, selectCopay;
     char redo = 'Y';
 
-    //create outer loop for overall estimation program
+    //create outer loop for overall estimation program change
     while (redo == 'Y' || redo == 'y')
     {
         //display each plan's details
