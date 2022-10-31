@@ -4,31 +4,33 @@
 #include <cstdlib>
 #include <vector>
 #include <fstream>
-
+#include <string>
 using namespace std;
 
-void writeStats(string filename, string outputFilename)
+bool getFileContent(string filename, string outputFilename, vector<string> &lines)
 {
     ifstream inFile;
-    
+
     inFile.open(filename); // open the file
 
     // verify the file opened, and proceed to gather the data if it does
     if (inFile)
     {
-        //read the data from the file
-        int numPersons, weeks; //declare initial variables.
-
-        inFile >> numPersons >> weeks; // get data for reading loops
-
-        //print info for debugging purposes
-        cout << "there are " << numPersons << " persons in the data." <<endl;
-        cout << "and there are " << weeks << " weeks of data." <<endl; 
-
+        string line;
+        while (getline(inFile,line)) //read each line of file, line by line
+        {
+            lines.push_back((line)); //add current line to vector holding contents of file
+        }
+        
         inFile.close(); // close the file
-    } 
+        
+        return true;
+    }
     else
-    cout << "The file doesn't exist." << endl;      
+    {
+        cout << "The file doesn't exist." << endl;
+        return false;
+    }
 }
 
 void writeInfo(ifstream inFile, int numPers, int weeks, string outFile) // method for writing file output
@@ -36,23 +38,34 @@ void writeInfo(ifstream inFile, int numPers, int weeks, string outFile) // metho
     // code here to write output file
 }
 
-double readandCalcPersonStats(int weeks,double runningTotal)
+double readandCalcPersonStats(int weeks, double runningTotal)
 {
-    cout << "the ";
+    double averageSales;
+    cout << "The ";
+
+    return runningTotal;
 }
 
 int main()
 {
-    ifstream inFile;
     string outputName;
+    vector<string> fileContent;
 
-    //prompt user for initial filename
+    // prompt user for initial filename
     cout << "what would you like your output file to be called?";
     cin >> outputName;
 
-    writeStats("theSales.txt", outputName); //write the data from 'theSales.txt' to your preferred filename.
+    bool success = getFileContent("theSales.txt", outputName, fileContent); // get file content from 'theSales.txt'and put it into vector.
 
+    if (success)
+    {
+        
+    }
+    else
+    {
+        cout << "ERROR: File does not exist!" <<endl;
+    }
     
-    
+
     return EXIT_SUCCESS;
 }
