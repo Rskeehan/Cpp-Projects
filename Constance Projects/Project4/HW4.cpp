@@ -17,7 +17,6 @@ typedef struct personStats
     string lastName;
     double personalTotalSales;
     double averageWeeklySales;
-    double overallTotalSales;
 } personStats;
 
 bool getFileContent(string filename, string outputFilename, vector<string> &lines)
@@ -46,7 +45,7 @@ bool getFileContent(string filename, string outputFilename, vector<string> &line
     }
 }
 
-personStats readandOutputPersonStats(vector<string> &fileContent, int numWeeks, int runningTotal, int &lineReference)
+personStats readandOutputPersonStats(vector<string> &fileContent, int numWeeks, int &lineReference)
 {
     int initialLineReference = lineReference;
     double averageSales;
@@ -55,31 +54,26 @@ personStats readandOutputPersonStats(vector<string> &fileContent, int numWeeks, 
     double dayTotal;
     personStats personalStats;
 
-    //read in personal info for each employee
+    // read in personal info for each employee
     istringstream ss(fileContent[lineReference]);
     ss >> personalStats.firstName;
     ss >> personalStats.MiddleI;
     ss >> personalStats.lastName;
-    cout << personalStats.firstName << " " << personalStats.lastName << " had an average sale of: " <<endl;
 
-    while (week <= numWeeks);
+    // calculate person's average and total sales
+    for (week = 1; week <= numWeeks; week++)
     {
-        cout << "calculations for week " << week << " of " << numWeeks;
-
-        istringstream sst(fileContent[lineReference+week]);
-        for (int i = 1; i <=5; i++)
+        istringstream sst(fileContent[lineReference + week]);
+        for (int i = 1; i <= 5; i++)
         {
             sst >> dayTotal;
             personTotal += dayTotal;
-            cout << "The day total is " << dayTotal <<endl;
-            cout << "the persons current total is: " <<personTotal << endl <<endl;
         }
     }
-    
-    
-
+    personalStats.personalTotalSales = personTotal;
+    personalStats.averageWeeklySales = personTotal / numWeeks;
     return personalStats;
-    }
+}
 
 int main()
 {
@@ -100,9 +94,17 @@ int main()
         // read file header data (remember base 0)
         int numPersons = stoi(fileContent[i++]); // read number of persons in text file then increment to next line
         int numWeeks = stoi(fileContent[i++]);   // read number of weeks per person in text file then increment to next line
+        int person   = 1;
+        // output and increment information
+        for (person = 0; person <= numPersons; i += numWeeks + 1)
+        {
+            //get personal stats for current person and output them
+            personStats currentPerson = readandOutputPersonStats(fileContent, numWeeks, i);
+            cout << currentPerson.lastName << " had a total of $" << currentPerson.personalTotalSales << " over " << numWeeks << " weeks. For an average of $" << currentPerson.averageWeeklySales << " a week." << endl;
+            // increment person
+            person++;
 
-        personStats currentPerson = readandOutputPersonStats(fileContent, numWeeks, runningTotal, i);
-        i += numWeeks + 1; //increment i for next loop
+        }
     }
     else
     {
