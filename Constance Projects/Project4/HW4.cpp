@@ -5,8 +5,10 @@
 #include <vector>
 #include <fstream>
 #include <string>
-#include <sstream>
-#include <numeric>
+#include <sstream> 
+#include <numeric> //accessing vector summing
+#include <iomanip> //accesses setting precision
+
 using namespace std;
 
 // make useful structure
@@ -83,28 +85,30 @@ int main()
     // prompt user for initial filename
     cout << "what would you like your output file to be called?";
     cin >> outputName;
-
+    cout << setprecision(5);
     bool success = getFileContent("theSales.txt", outputName, fileContent); // get file content from 'theSales.txt'and put it into vector.
 
     if (success)
     {
         // initilize line reference and running total
-        int i = 0, runningTotal = 0;
+        int lineReference = 0, runningTotal = 0;
 
         // read file header data (remember base 0)
-        int numPersons = stoi(fileContent[i++]); // read number of persons in text file then increment to next line
-        int numWeeks = stoi(fileContent[i++]);   // read number of weeks per person in text file then increment to next line
+        int numPersons = stoi(fileContent[lineReference++]); // read number of persons in text file then increment to next line
+        int numWeeks = stoi(fileContent[lineReference++]);   // read number of weeks per person in text file then increment to next line
         int person   = 1;
         // output and increment information
-        for (person = 0; person <= numPersons; i += numWeeks + 1)
+        for (person = 0; person < numPersons; lineReference += numWeeks + 1)
         {
             //get personal stats for current person and output them
-            personStats currentPerson = readandOutputPersonStats(fileContent, numWeeks, i);
+            personStats currentPerson = readandOutputPersonStats(fileContent, numWeeks, lineReference);
             cout << currentPerson.lastName << " had a total of $" << currentPerson.personalTotalSales << " over " << numWeeks << " weeks. For an average of $" << currentPerson.averageWeeklySales << " a week." << endl;
+            runningTotal += currentPerson.personalTotalSales;
+            
             // increment person
             person++;
-
         }
+        cout << "The Grand total of sales across the sample of " << numWeeks << " is $" << runningTotal <<". for an average of $" << runningTotal/numWeeks << " per week." << endl;
     }
     else
     {
