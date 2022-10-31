@@ -97,11 +97,12 @@ int main()
         // initilize line reference and running total
         int lineReference = 0;
         double runningTotal = 0;
+        int person = 1;
 
         // read file header data (remember base 0)
         int numPersons = stoi(fileContent[lineReference++]); // read number of persons in text file then increment to next line
         int numWeeks = stoi(fileContent[lineReference++]);   // read number of weeks per person in text file then increment to next line
-        int person = 1;
+
         // output and increment information
         for (person = 0; person < numPersons; lineReference += numWeeks + 1)
         {
@@ -118,6 +119,7 @@ int main()
     {
         cout << "ERROR: File does not exist!" << endl;
     }
-
+    std::cout << "press any key to end program." << std::endl;
+    cin >> outputName;
     return EXIT_SUCCESS;
 }
