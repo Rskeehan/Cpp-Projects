@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void gatherData(string filename)
+void writeStats(string filename, string outputFilename)
 {
     ifstream inFile;
     
@@ -17,7 +17,7 @@ void gatherData(string filename)
     if (inFile)
     {
         //read the data from the file
-        int numPersons, weeks;
+        int numPersons, weeks; //declare initial variables.
 
         inFile >> numPersons >> weeks; // get data for reading loops
 
@@ -31,14 +31,28 @@ void gatherData(string filename)
     cout << "The file doesn't exist." << endl;      
 }
 
-void writeFile(ifstream inFile, int numPers, int weeks) // method for wriging file output
+void writeInfo(ifstream inFile, int numPers, int weeks, string outFile) // method for writing file output
 {
     // code here to write output file
 }
 
+double readandCalcPersonStats(int weeks,double runningTotal)
+{
+    cout << "the ";
+}
+
 int main()
 {
-    gatherData("theSales.txt");
+    ifstream inFile;
+    string outputName;
 
+    //prompt user for initial filename
+    cout << "what would you like your output file to be called?";
+    cin >> outputName;
+
+    writeStats("theSales.txt", outputName); //write the data from 'theSales.txt' to your preferred filename.
+
+    
+    
     return EXIT_SUCCESS;
 }
