@@ -15,8 +15,6 @@ int main()
     const int TRIANGLE_CHOICE  = 3;
     const int QUIT_CHOICE      = 4;
 
-
-
     int loopVar = 0;
 
     while (loopVar!=1)
@@ -82,6 +80,5 @@ int main()
                 break;
         }
     }
-    
     return EXIT_SUCCESS;
 }
