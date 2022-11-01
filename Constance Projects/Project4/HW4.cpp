@@ -75,9 +75,10 @@ personStats readandOutputPersonStats(vector<string> &fileContent, int numWeeks, 
     personalStats.personalTotalSales = personTotal;            // assign personaltotal
     personalStats.averageWeeklySales = personTotal / numWeeks; // assign personAverage
 
-    //output info for the person
+    // output info for the person
     cout << personalStats.lastName << " had a total of $" << personalStats.personalTotalSales << " over " << numWeeks << " weeks. For an average of $" << personalStats.averageWeeklySales << " a week." << endl;
-
+    
+    
     return personalStats; // return the person's info.
 }
 
@@ -89,6 +90,7 @@ int main()
     // prompt user for initial filename
     cout << "what would you like your output file to be called?";
     cin >> outputName;
+    ofstream outFile(outputName + ".txt");
     cout << setprecision(8);
     bool success = getFileContent("theSales.txt", outputName, fileContent); // get file content from 'theSales.txt'and put it into vector.
 
@@ -114,12 +116,15 @@ int main()
             person++;
         }
         cout << "The Grand total of sales across the sample of " << numWeeks << " is $" << runningTotal << ". for an average of $" << runningTotal / numWeeks << " per week." << endl;
+        outFile << "The Grand total of sales across the sample of " << numWeeks << " is $" << runningTotal << ". for an average of $" << runningTotal / numWeeks << " per week." << endl;
     }
     else
     {
         cout << "ERROR: File does not exist!" << endl;
     }
-    std::cout << "press any key to end program." << std::endl;
+
+    cout << "press any key to end program." << endl;
     cin >> outputName;
+
     return EXIT_SUCCESS;
 }
