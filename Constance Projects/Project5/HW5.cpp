@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class MyString
+class MyString // primary class as directed by instruction document
 {
 private:
     char content[32];
@@ -19,12 +19,13 @@ public:
         content[32] = {};
     };
 
-    // getters
+    // getter
     int getLength() // returns length of private member var 'content'
     {
         return length;
     };
 
+    // setter
     bool pushBack(char inchar) // adds a char to the 'content' char stack if possible`
     {
         bool successfullyAdded;
@@ -46,6 +47,5 @@ public:
 
 int main()
 {
-    // Code here
     return EXIT_SUCCESS;
-};
+}
