@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/RPS00/OneDrive/Documents/03 Coding/Cpp-Projects/Constance Projects",
-      "program": "c:/Users/RPS00/OneDrive/Documents/03 Coding/Cpp-Projects/Constance Projects/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
