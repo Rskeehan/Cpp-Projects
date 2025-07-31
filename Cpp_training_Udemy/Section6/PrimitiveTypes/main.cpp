@@ -27,8 +27,8 @@ int main() {
     long long people_on_earth  {7'600'000'000};     // make sure this is a long long and not just a long
     cout << "There are about " << people_on_earth << " people on earth" << endl;
     
-    long long distance_to_alpha_centauri {9'461'000'000'000};
-    cout << "The distance to alpha centauri is " << distance_to_alpha_centauri << " kilometers" << endl;
+    // long long distance_to_alpha_centauri {9'461'000'000'000};
+    // cout << "The distance to alpha centauri is " << distance_to_alpha_centauri << " kilometers" << endl;
     
    
     /***********************************************
