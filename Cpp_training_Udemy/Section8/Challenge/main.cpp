@@ -38,6 +38,48 @@
 using namespace std;
 
 int main() {
+	// Declare variables for each denomination and initialize them to zero
+	int dollars {0};
+	const int cents_per_dollar {100};
+	int quarters {0};
+	const int cents_per_quarter {25};
+	int dimes {0};
+	const int cents_per_dime {10};
+	int nickels {0};
+	const int cents_per_nickel {5};
+	int pennies {0};
+	const int cents_per_penny {1};
+
+	int RemainingCents {};
+	
+	int cents {};
+	cout << "Enter an amount in cents: ";
+	cin >> cents;
+
+	// Calculate the number of dollars, quarters, dimes, nickels, and pennies
+
+	dollars = cents / cents_per_dollar; // Calculate dollars
+	RemainingCents = cents %= (dollars * cents_per_dollar); // Calculate remaining cents after dollars
+
+	quarters = RemainingCents / cents_per_quarter; // Calculate quarters
+	RemainingCents %= cents_per_quarter; // Calculate remaining cents after quarters
+
+	dimes = RemainingCents / cents_per_dime; // Calculate dimes
+	RemainingCents %= cents_per_dime; // Calculate remaining cents after dimes
+
+	nickels = RemainingCents / cents_per_nickel; // Calculate nickels
+	RemainingCents %= cents_per_nickel; // Calculate remaining cents
+
+	pennies = RemainingCents / cents_per_penny; // Calculate pennies
+
+	//display the results
+
+	cout << "You can provide this change as follows:" << endl;
+	cout << "dollars    : " << dollars << endl;
+	cout << "quarters : " << quarters << endl;
+	cout << "dimes     : " << dimes << endl;
+	cout << "nickels   : " << nickels << endl;
+	cout << "pennies  : " << pennies << endl;
 
     cout << endl;
     return 0;

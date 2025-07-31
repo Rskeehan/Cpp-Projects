@@ -14,13 +14,13 @@ int main() {
     
     // Determine if an entered integer is between two other integers
     // assume lower < upper
-//    cout << "Enter an integer - the bounds are " << lower << " and " << upper << " : ";
-//    cin >> num;
-//    
-//    bool within_bounds {false};
-//    
-//    within_bounds = (num > lower && num < upper);
-//    cout << num  << " is between "<< lower <<  " and " << upper << " : " << within_bounds << endl;
+   cout << "Enter an integer - the bounds are " << lower << " and " << upper << " : ";
+   cin >> num;
+   
+   bool within_bounds {false};
+   
+   within_bounds = (num > lower && num < upper);
+   cout << num  << " is between "<< lower <<  " and " << upper << " : " << within_bounds << endl;
     
     // Determine if an entered integer is outside two other integers
     // assume lower < upper
@@ -66,4 +66,3 @@ int main() {
     cout << endl;
     return 0;
 }
-
