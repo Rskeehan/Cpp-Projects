@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/RPS00/OneDrive/Documents/03_Coding/Cpp-Projects/Cpp_training_Udemy/Section4/Project1",
-      "program": "c:/Users/RPS00/OneDrive/Documents/03_Coding/Cpp-Projects/Cpp_training_Udemy/Section4/Project1/build/Release/outRelease",
+      "cwd": "c:/Users/RPS00/OneDrive/Documents/03_Coding/Cpp-Projects/Cpp_training_Udemy/Section8/ArithmeticOperators",
+      "program": "c:/Users/RPS00/OneDrive/Documents/03_Coding/Cpp-Projects/Cpp_training_Udemy/Section8/ArithmeticOperators/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
