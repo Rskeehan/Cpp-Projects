@@ -1,5 +1,5 @@
 // Section 10
-// Challenge - 
+// Challenge -
 // Substitution Cipher
 
 /*
@@ -14,7 +14,7 @@ Encrypt this message using the substitution cipher and display the encrypted mes
 Then decryped the encrypted message back to the original message.
 
 You may use the 2 strings below for  your subsitition.
-For example, to encrypt you can replace the character at position n in alphabet 
+For example, to encrypt you can replace the character at position n in alphabet
 with the character at position n in key.
 
 To decrypt you can replace the character at position n in key
@@ -30,14 +30,49 @@ Reuse existing functionality in libraries and in the std::string class!
 */
 
 #include <iostream>
+#include <vector>
 
-int main() {
-    
-    string alphabet {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-    string key  {"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
-    
-    
+using namespace std;
+
+int main()
+{
+    string alphabet{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+    string key{"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
+    string raw_message;
+    string encrypted_message;
+    string decrypted_message;
+    size_t position;
+
+    cout << "what is the message to encrypt? ";
+    getline(cin, raw_message);
+    cout << endl << endl << "Encrypting..." << endl << endl;
+
+    for (char c : raw_message) {
+        position = alphabet.find(c);
+        if (position != string::npos)
+        {
+            encrypted_message += key.at(position);
+        } else
+        {
+            encrypted_message += c;
+        }
+    }
+    cout << encrypted_message << endl << endl << "Decrypting Message..."<< endl << endl ;
+
+    for (char d: encrypted_message)
+    {
+        position = key.find(d);
+        if (position != string::npos)
+        {
+            decrypted_message += alphabet.at(position);
+        }
+        else
+        {
+            decrypted_message += d;
+        }
+    }
+    cout << "Re-decrypted message is: " << decrypted_message;
+
     cout << endl;
     return 0;
 }
-
